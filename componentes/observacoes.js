@@ -5,8 +5,7 @@ export function Observacoes() {
 
             <textarea 
                 id="observacoes"
-                placeholder="Informe o prazo de entrega, garantia e condições de pagamento...">
-            </textarea>
+                placeholder="Informe o prazo de entrega, garantia e condições de pagamento..."></textarea>
         </section>
     `;
 }

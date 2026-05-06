@@ -8,9 +8,24 @@ import { Assinaturas } from '../componentes/assinaturas.js';
 
 const app = document.getElementById('app');
 
+// data 
+
 function formatarData() {
     const hoje = new Date();
     return hoje.toLocaleDateString('pt-BR');
+}
+
+// valores
+
+function formatarMoeda(valor) {
+    valor = valor.replace(/\D/g, '');
+
+    valor = (Number(valor) / 100).toFixed(2) + '';
+    valor = valor.replace('.', ',');
+
+    valor = valor.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+    return 'R$ ' + valor;
 }
 
 function calcularSubtotal() {
@@ -19,7 +34,13 @@ function calcularSubtotal() {
     let soma = 0;
 
     valores.forEach(input => {
-        const valor = parseFloat(input.value) || 0;
+        const valor = parseFloat(
+            input.value
+                .replace('R$', '')
+                .replace(/\./g, '')
+                .replace(',', '.')
+        ) || 0;
+
         soma += valor;
     });
 
@@ -29,7 +50,12 @@ function calcularSubtotal() {
     }
 
     const descontoInput = document.getElementById('desconto');
-    const desconto = parseFloat(descontoInput?.value) || 0;
+    const desconto = parseFloat(
+        descontoInput?.value
+            ?.replace('R$', '')
+            .replace(/\./g, '')
+            .replace(',', '.')
+    ) || 0;
 
     const total = soma - desconto;
 
@@ -43,15 +69,23 @@ function ativarCalculo() {
     const inputs = document.querySelectorAll('.valor-servico');
 
     inputs.forEach(input => {
-        input.addEventListener('input', calcularSubtotal);
+        input.addEventListener('input', (e) => {
+            e.target.value = formatarMoeda(e.target.value);
+            calcularSubtotal();
+        });
     });
 
     const descontoInput = document.getElementById('desconto');
 
     if (descontoInput) {
-        descontoInput.addEventListener('input', calcularSubtotal);
+        descontoInput.addEventListener('input', (e) => {
+            e.target.value = formatarMoeda(e.target.value);
+            calcularSubtotal();
+        });
     }
 }
+
+// add item 
 
 function adicionarItem() {
     const lista = document.getElementById('lista-servicos');
@@ -63,13 +97,17 @@ function adicionarItem() {
 
     novoItem.innerHTML = `
         <input type="text" placeholder="Descrição do serviço">
-        <input type="number" class="valor-servico" placeholder="0,00">
+        <input type="text" class="valor-servico" placeholder="R$ 0,00">
     `;
 
     lista.appendChild(novoItem);
 
     const novoInput = novoItem.querySelector('.valor-servico');
-    novoInput.addEventListener('input', calcularSubtotal);
+
+    novoInput.addEventListener('input', (e) => {
+        e.target.value = formatarMoeda(e.target.value);
+        calcularSubtotal();
+    });
 }
 
 function ativarAdicionarItem() {
@@ -79,6 +117,8 @@ function ativarAdicionarItem() {
         botao.addEventListener('click', adicionarItem);
     }
 }
+
+// pdf 
 
 function gerarPDF() {
     const elemento = document.getElementById('app');
@@ -141,7 +181,6 @@ function gerarPDF() {
 
         doc.save('orcamento.pdf');
 
-        // restaurar
         substituicoes.forEach(({ input, span }) => {
             input.style.display = 'inline-block';
             span.remove();

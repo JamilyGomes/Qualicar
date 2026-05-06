@@ -1,3 +1,236 @@
+/* ================= RESET ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ================= VARIÁVEIS ================= */
+:root {
+    --azul-principal: #0f1c34;
+    --azul-destaque: #3b82f6;
+    --azul-claro: #7da2ff;
+    --cinza-bg: #f4f6f9;
+    --branco: #ffffff;
+}
+
+/* ================= BODY ================= */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--cinza-bg);
+    color: #333;
+}
+
+/* ================= CONTAINER GERAL ================= */
+section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 20px auto;
+}
+
+/* ================= HEADER ================= */
+.topo {
+    background: var(--azul-principal);
+    color: white;
+    padding: 30px 0;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.topo .container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ================= LOGO ================= */
+.topo .container > div:first-child {
+    display: flex;
+    align-items: center;
+}
+
+.logo-box {
+    width: 120px;
+    height: 120px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+    transform: scale(1.1);
+}
+
+/* ================= TEXTO LOGO ================= */
+.logo-texto h1 {
+    font-size: 42px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.logo-texto p {
+    font-size: 14px;
+    letter-spacing: 6px;
+    color: var(--azul-claro);
+}
+
+/* ================= INFO DOC ================= */
+.doc-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.doc-info h2 {
+    background: var(--azul-destaque);
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+.doc-info p {
+    font-size: 13px;
+}
+
+#data-exibicao {
+    border: none;
+    background: transparent;
+    color: white;
+    text-align: center;
+}
+
+/* ================= DADOS ================= */
+.bloco-dados {
+    display: flex;
+    gap: 20px;
+}
+
+.lado {
+    flex: 1;
+    background: var(--branco);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.lado h4 {
+    margin-bottom: 10px;
+    color: var(--azul-destaque);
+}
+
+.lado input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* ================= SERVIÇOS ================= */
+.secao-servicos {
+    background: var(--branco);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.secao-servicos h3 {
+    margin-bottom: 15px;
+}
+
+.item-servico {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.item-servico input {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.item-servico input:first-child {
+    flex: 3;
+}
+
+.item-servico input:last-child {
+    flex: 1;
+}
+
+#add-item {
+    margin-top: 10px;
+    background: #e9eefc;
+    border: none;
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* ================= RESUMO ================= */
+.secao-resumo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--branco);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.secao-resumo div {
+    text-align: center;
+}
+
+.secao-resumo div:nth-child(2) p {
+    color: #e53935;
+    font-weight: 600;
+}
+
+#desconto {
+    color: #e53935;
+    border: 1px solid #e53935;
+    border-radius: 6px;
+    padding: 6px;
+    text-align: center;
+}
+
+#total-geral {
+    background: var(--azul-principal);
+    color: var(--azul-claro);
+    padding: 15px 25px;
+    border-radius: 12px;
+}
+
+/* ================= OBSERVAÇÕES ================= */
+.secao-observacoes {
+    background: var(--branco);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.secao-observacoes textarea {
+    width: 100%;
+    height: 100px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    padding: 10px;
+    resize: none;
+}
+
+textarea::placeholder {
+    color: #999;
+}
+
+/* ================= ASSINATURAS ================= */
 .secao-assinaturas {
     display: flex;
     justify-content: space-between;
@@ -10,6 +243,45 @@
 }
 
 .linha {
-    border-top: 2px solid #000;
-    margin-bottom: 5px;
+    height: 1px;
+    background: black;
+    margin-bottom: 8px;
+}
+
+/* ================= AÇÕES ================= */
+.secao-acoes {
+    text-align: center;
+    margin-top: 30px;
+}
+
+#btn-pdf {
+    background: var(--azul-destaque);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 768px) {
+
+    .topo .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .bloco-dados {
+        flex-direction: column;
+    }
+
+    .secao-resumo {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .secao-assinaturas {
+        flex-direction: column;
+        gap: 20px;
+    }
 }

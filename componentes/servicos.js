@@ -7,12 +7,12 @@ export function Servicos() {
 
                 <div class="item-servico">
                     <input type="text" placeholder="Ex: Pintura da porta dianteira esquerda">
-                    <input type="number" class="valor-servico" placeholder="0,00">
+                    <input type="text" class="valor-servico" placeholder="R$ 0,00">
                 </div>
 
                 <div class="item-servico">
                     <input type="text" placeholder="Ex: Mão de obra funilaria">
-                    <input type="number" class="valor-servico" placeholder="0,00">
+                    <input type="text" class="valor-servico" placeholder="R$ 0,00">
                 </div>
 
             </div>
