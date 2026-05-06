@@ -118,6 +118,94 @@ function ativarAdicionarItem() {
     }
 }
 
+// tell 
+
+function mascararTelefone(valor) {
+    const numeros = valor.replace(/\D/g, '').slice(0, 11);
+
+    if (numeros.length <= 10) {
+        return numeros.replace(
+            /(\d{0,2})(\d{0,4})(\d{0,4})/,
+            (m, ddd, parte1, parte2) => {
+                let r = '';
+                if (ddd) r += '(' + ddd;
+                if (ddd.length === 2) r += ') ';
+                if (parte1) r += parte1;
+                if (parte2) r += '-' + parte2;
+                return r;
+            }
+        );
+    }
+
+    return numeros.replace(
+        /(\d{0,2})(\d{0,5})(\d{0,4})/,
+        (m, ddd, parte1, parte2) => {
+            let r = '';
+            if (ddd) r += '(' + ddd;
+            if (ddd.length === 2) r += ') ';
+            if (parte1) r += parte1;
+            if (parte2) r += '-' + parte2;
+            return r;
+        }
+    );
+}
+
+function ativarMascaraTelefone() {
+    const input = document.getElementById('telefone');
+
+    if (!input) return;
+
+    let ultimoValor = '';
+
+    input.addEventListener('input', (e) => {
+        const cursor = e.target.selectionStart;
+
+        const apenasNumeros = e.target.value.replace(/\D/g, '').slice(0, 11);
+        const formatado = mascararTelefone(apenasNumeros);
+
+        ultimoValor = formatado;
+        e.target.value = formatado;
+
+        const diff = formatado.length - apenasNumeros.length;
+        e.target.setSelectionRange(cursor + diff, cursor + diff);
+    });
+
+    input.addEventListener('paste', (e) => {
+        e.preventDefault();
+
+        const texto = (e.clipboardData || window.clipboardData)
+            .getData('text')
+            .replace(/\D/g, '')
+            .slice(0, 11);
+
+        const formatado = mascararTelefone(texto);
+
+        input.value = formatado;
+    });
+}
+
+// placa 
+function ativarPlacaMaiuscula() {
+    const input = document.getElementById('placa');
+
+    if (!input) return;
+
+    input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+    });
+}
+
+// ano 
+function ativarAnoQuatroDigitos() {
+    const input = document.getElementById('ano');
+
+    if (!input) return;
+
+    input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+    });
+}
+
 // pdf 
 
 function gerarPDF() {
@@ -218,4 +306,7 @@ if (app) {
     ativarCalculo();
     ativarAdicionarItem();
     ativarPDF();
+    ativarMascaraTelefone();
+    ativarPlacaMaiuscula();
+    ativarAnoQuatroDigitos();
 }
