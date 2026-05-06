@@ -1,11 +1,10 @@
-/* ================= RESET ================= */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* ================= VARIÁVEIS ================= */
+/* variaveis */
 :root {
     --azul-principal: #0f1c34;
     --azul-destaque: #3b82f6;
@@ -14,21 +13,21 @@
     --branco: #ffffff;
 }
 
-/* ================= BODY ================= */
+/* body  */
 body {
     font-family: 'Montserrat', sans-serif;
     background: var(--cinza-bg);
     color: #333;
 }
 
-/* ================= CONTAINER GERAL ================= */
+/* container principal */
 section {
     width: 90%;
     max-width: 1100px;
     margin: 20px auto;
 }
 
-/* ================= HEADER ================= */
+/* header  */
 .topo {
     background: var(--azul-principal);
     color: white;
@@ -46,7 +45,7 @@ section {
     justify-content: space-between;
 }
 
-/* ================= LOGO ================= */
+/* logo  */
 .topo .container > div:first-child {
     display: flex;
     align-items: center;
@@ -68,7 +67,7 @@ section {
     transform: scale(1.1);
 }
 
-/* ================= TEXTO LOGO ================= */
+/* logo  */
 .logo-texto h1 {
     font-size: 42px;
     font-weight: 800;
@@ -81,7 +80,7 @@ section {
     color: var(--azul-claro);
 }
 
-/* ================= INFO DOC ================= */
+/* doc  */
 .doc-info {
     display: flex;
     flex-direction: column;
@@ -109,7 +108,7 @@ section {
     text-align: center;
 }
 
-/* ================= DADOS ================= */
+/* dados  */
 .bloco-dados {
     display: flex;
     gap: 20px;
@@ -136,7 +135,7 @@ section {
     border: 1px solid #ddd;
 }
 
-/* ================= SERVIÇOS ================= */
+/* serviços  */
 .secao-servicos {
     background: var(--branco);
     padding: 20px;
@@ -176,7 +175,7 @@ section {
     cursor: pointer;
 }
 
-/* ================= RESUMO ================= */
+/* resumo  */
 .secao-resumo {
     display: flex;
     justify-content: space-between;
@@ -210,7 +209,7 @@ section {
     border-radius: 12px;
 }
 
-/* ================= OBSERVAÇÕES ================= */
+/* observaçoes */
 .secao-observacoes {
     background: var(--branco);
     padding: 20px;
@@ -230,7 +229,7 @@ textarea::placeholder {
     color: #999;
 }
 
-/* ================= ASSINATURAS ================= */
+/* assinaturas  */
 .secao-assinaturas {
     display: flex;
     justify-content: space-between;
@@ -248,7 +247,7 @@ textarea::placeholder {
     margin-bottom: 8px;
 }
 
-/* ================= AÇÕES ================= */
+/* acoes  */
 .secao-acoes {
     text-align: center;
     margin-top: 30px;
@@ -263,7 +262,7 @@ textarea::placeholder {
     cursor: pointer;
 }
 
-/* ================= RESPONSIVO ================= */
+/* responsividade */
 @media (max-width: 768px) {
 
     .topo .container {
