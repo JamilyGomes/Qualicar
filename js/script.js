@@ -220,14 +220,26 @@ function gerarPDF() {
     const substituicoes = [];
 
     inputs.forEach(input => {
-        const valor = input.value || '';
+        const valor = input.value || ' ';
 
         const span = document.createElement('span');
         span.textContent = valor;
 
         span.style.display = 'inline-block';
         span.style.minHeight = '18px';
-        span.style.fontSize = '12px';
+        span.style.fontSize = '14px';
+        span.style.width = '100%';
+        span.style.padding = '8px';
+        span.style.border = '1px solid #ccc';
+        span.style.borderRadius = '4px';
+        span.style.background = '#fff';
+
+        if (input.id === 'data-exibicao') {
+            span.style.color = '#fff';
+            span.style.background = 'transparent';
+            span.style.border = 'none';
+            span.style.padding = '0';
+        }
 
         if (input.tagName === 'TEXTAREA') {
             span.style.whiteSpace = 'pre-wrap';
