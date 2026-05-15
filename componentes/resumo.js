@@ -9,7 +9,7 @@ export function Resumo() {
 
             <div>
                 <p>Desconto Especial</p>
-                <input type="number" id="desconto" value="0">
+                <input type="text" id="desconto">
             </div>
 
             <div>
