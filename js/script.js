@@ -293,7 +293,17 @@ function gerarPDF() {
         substituicoes.push({ input, span });
     });
 
-    html2canvas(elemento).then(canvas => {
+    // testeee
+
+    html2canvas(elemento, {
+        scale: 2,
+        useCORS: true,
+        windowWidth: 1200
+    }).then(canvas => {
+        
+
+    // acaba aquiii 
+
         const imgData = canvas.toDataURL('image/png');
 
         const { jsPDF } = window.jspdf;
