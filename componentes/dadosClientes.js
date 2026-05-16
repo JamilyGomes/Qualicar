@@ -8,7 +8,7 @@ export function DadosCliente() {
                     <h4>PROPRIETÁRIO</h4>
 
                     <div class="grid-veiculo">
-                        <input type="text" placeholder="Nome Completo do Cliente">
+                        <input type="text" id="nome-cliente" placeholder="Nome Completo do Cliente">
                         <input type="text" id="telefone" placeholder="Telefone de Contato">
                     </div>
                 </div>
@@ -21,6 +21,7 @@ export function DadosCliente() {
                     <input type="text" id="placa" placeholder="Placa">
                     <input type="text" placeholder="Cor">
                     <input type="text" id="ano" placeholder="Ano">
+                    <small id="erro-ano"></small>
                 </div>
             </div>
 

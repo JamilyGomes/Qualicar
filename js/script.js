@@ -9,14 +9,12 @@ import { Assinaturas } from '../componentes/assinaturas.js';
 const app = document.getElementById('app');
 
 // data 
-
 function formatarData() {
     const hoje = new Date();
     return hoje.toLocaleDateString('pt-BR');
 }
 
 // valores
-
 function formatarMoeda(valor) {
     valor = valor.replace(/\D/g, '');
 
@@ -86,7 +84,6 @@ function ativarCalculo() {
 }
 
 // add item 
-
 function adicionarItem() {
     const lista = document.getElementById('lista-servicos');
 
@@ -119,7 +116,6 @@ function ativarAdicionarItem() {
 }
 
 // tell 
-
 function mascararTelefone(valor) {
     const numeros = valor.replace(/\D/g, '').slice(0, 11);
 
@@ -191,23 +187,68 @@ function ativarPlacaMaiuscula() {
     if (!input) return;
 
     input.addEventListener('input', (e) => {
-        e.target.value = e.target.value.toUpperCase().replace(/[^A-Z0-9]/g, '');
+        e.target.value = e.target.value
+            .toUpperCase()
+            .replace(/[^A-Z0-9]/g, '')
+            .slice(0, 7);
     });
 }
 
 // ano 
 function ativarAnoQuatroDigitos() {
     const input = document.getElementById('ano');
+    const erro = document.getElementById('erro-ano');
 
     if (!input) return;
 
     input.addEventListener('input', (e) => {
-        e.target.value = e.target.value.replace(/\D/g, '').slice(0, 4);
+
+        let valor = e.target.value
+            .replace(/\D/g, '')
+            .slice(0, 4);
+
+        e.target.value = valor;
+
+        const anoAtual = new Date().getFullYear() + 1;
+
+        if (valor.length === 4) {
+
+            const anoNumero = parseInt(valor);
+
+            if (anoNumero < 1900 || anoNumero > anoAtual) {
+
+                input.classList.add('input-invalido');
+
+                erro.textContent = 'Ano inválido';
+
+            } else {
+
+                input.classList.remove('input-invalido');
+
+                erro.textContent = '';
+            }
+
+        } else {
+
+            input.classList.remove('input-invalido');
+
+            erro.textContent = '';
+        }
+    });
+}
+
+// nome cliente 
+function ativarNomeSemNumero() {
+    const input = document.getElementById('nome-cliente');
+
+    if (!input) return;
+
+    input.addEventListener('input', (e) => {
+        e.target.value = e.target.value.replace(/[0-9]/g, '');
     });
 }
 
 // pdf 
-
 function gerarPDF() {
     const elemento = document.getElementById('app');
     const botaoPDF = document.getElementById('btn-pdf');
@@ -321,4 +362,5 @@ if (app) {
     ativarMascaraTelefone();
     ativarPlacaMaiuscula();
     ativarAnoQuatroDigitos();
+    ativarNomeSemNumero();
 }

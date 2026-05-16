@@ -67,7 +67,6 @@ section {
     transform: scale(1.1);
 }
 
-/* logo  */
 .logo-texto h1 {
     font-size: 42px;
     font-weight: 800;
@@ -121,7 +120,6 @@ section {
     text-align: center;
 }
 
-/* dados  */
 /* dados  */
 .bloco-dados {
     display: grid;
@@ -288,6 +286,31 @@ textarea::placeholder {
     display: flex;
     flex-direction: column;
     gap: 8px;
+}
+
+/* ano  */
+input.input-invalido {
+    border: 2px solid #e53935 !important;
+    background: #fff5f5;
+}
+
+input.input-invalido:focus {
+    border: 2px solid #e53935 !important;
+    box-shadow: 0 0 5px rgba(229, 57, 53, 0.3);
+}
+
+input:focus {
+    outline: none;
+    border: 2px solid var(--azul-destaque);
+    box-shadow: 0 0 5px rgba(59, 130, 246, 0.3);
+}
+
+#erro-ano {
+    color: #e53935;
+    font-size: 12px;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 8px;
 }
 
 /* responsividade */
