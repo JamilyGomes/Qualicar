@@ -46,7 +46,7 @@ section {
 }
 
 /* logo  */
-.topo .container > div:first-child {
+.topo .container>div:first-child {
     display: flex;
     align-items: center;
 }
@@ -58,7 +58,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: center;
-    
+
 }
 
 .logo {
@@ -347,6 +347,12 @@ input:focus {
         text-align: center;
     }
 
+    #data-exibicao {
+        width: 110px;
+        min-width: 110px;
+        font-size: 14px;
+    }
+
     .bloco-dados {
         grid-template-columns: 1fr;
     }
@@ -404,7 +410,7 @@ input:focus {
         width: 100%;
     }
 
-        .lado,
+    .lado,
     .secao-servicos,
     .secao-resumo,
     .secao-observacoes {
