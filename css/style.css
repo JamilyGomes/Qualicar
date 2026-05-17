@@ -403,4 +403,44 @@ input:focus {
     #add-item {
         width: 100%;
     }
+
+        .lado,
+    .secao-servicos,
+    .secao-resumo,
+    .secao-observacoes {
+        border-radius: 18px;
+    }
+
+    input,
+    textarea {
+        min-height: 48px;
+    }
+
+    .item-servico {
+        gap: 12px;
+    }
+
+    .secao-servicos h3,
+    .secao-observacoes h3 {
+        text-align: center;
+    }
+
+    #btn-pdf,
+    #add-item {
+        min-height: 50px;
+        font-weight: 600;
+    }
+
+    .secao-resumo div {
+        width: 100%;
+    }
+
+    #total-geral {
+        font-size: 28px;
+    }
+
+    .doc-info h2 {
+        width: 100%;
+        text-align: center;
+    }
 }
