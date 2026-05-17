@@ -385,4 +385,20 @@ input:focus {
     section {
         width: 95%;
     }
+
+    input,
+    textarea,
+    button {
+        font-size: 16px;
+    }
+
+    input,
+    textarea {
+        padding: 12px;
+    }
+
+    #btn-pdf,
+    #add-item {
+        width: 100%;
+    }
 }
