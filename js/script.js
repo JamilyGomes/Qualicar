@@ -324,8 +324,14 @@ function gerarPDF() {
             alturaRestante -= alturaPDF;
         }
 
-        doc.save('orcamento.pdf');
+        const nomeCliente = document.getElementById('nome-cliente')?.value || 'cliente';
 
+        const nomeArquivo = `orcamento-${nomeCliente
+            .trim()
+            .toLowerCase()
+            .replace(/\s+/g, '-')}.pdf`;
+
+        doc.save(nomeArquivo);
         substituicoes.forEach(({ input, span }) => {
             input.style.display = 'inline-block';
             span.remove();
